@@ -2,9 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:votaciones2/pages/iniciarvotaciones.dart';
 
 import 'archivo.dart';
+import 'iniciarvotaciones.dart';
 import 'personero.dart';
 import 'dart:io';
 
@@ -36,7 +36,12 @@ class cabildante extends StatelessWidget{
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: <Widget> [
-              RaisedButton(
+              BotonCabildante(context, Colors.deepOrangeAccent, 'assets/images/MariaValentinaGonzalez.jpg', "3", archivo, person, contra),
+              BotonCabildante(context, Colors.pink[100], 'assets/images/KarolValentinaDiaz.jpg', "2", archivo, person, contra),
+              BotonCabildante(context, Colors.red, 'assets/images/SharickMelissaMoreno.jpg', "1", archivo, person, contra),
+              BotonCabildante(context, Colors.white, 'assets/images/Votoenblanco.jpg', "B", archivo, person, contra),
+
+/*              RaisedButton(
                 color: Colors.deepOrangeAccent,
                 child: Image.asset('assets/images/MariaValentinaGonzalez.jpg'),
                 onPressed: () {
@@ -66,7 +71,6 @@ class cabildante extends StatelessWidget{
                       context: context);
                 },
               ),
-
               RaisedButton(
                 color: Colors.pink[100],
                 child: Image.asset('assets/images/KarolValentinaDiaz.jpg'),
@@ -128,7 +132,6 @@ class cabildante extends StatelessWidget{
                       context: context);
                 },
               ),
-
               RaisedButton(
                 color: Colors.white,
                 child: Image.asset('assets/images/Votoenblanco.jpg'),
@@ -159,13 +162,46 @@ class cabildante extends StatelessWidget{
                       context: context
                   );
                 },
-              ),
+              ),*/
             ]
         ),
       ),
     );
   }
+
+  Widget BotonCabildante(BuildContext contexto, var color, String imagen, String numcabil, File archivo, String person, String contra) {
+
+    return ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      primary: color,
+    ),
+      child: Image.asset(imagen),
+      onPressed: () {
+        showDialog(
+            barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+            builder: (contexto){
+              return AlertDialog(
+                title: Text("CODIGO DE VOTACIÓN"),
+                content: Text(person + contra + cabil),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      _contadorcabildante1++;       // Este contador para que se utiliza, se puede quitar ?
+                      cabil = numcabil;
+                      guardarvoto(archivo, person, contra, cabil);
+                      Navigator.push(
+                        contexto,
+                        MaterialPageRoute(
+                            builder: (context) => iniciarvotaciones(archivo: archivo)),
+                      );
+                    },
+                    child: Text("Aceptar"),
+                  )
+                ],
+              );
+            },
+            context: contexto);
+      },
+    );
+  }
 }
-
-
-

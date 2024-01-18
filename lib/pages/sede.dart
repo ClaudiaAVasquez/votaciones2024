@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:votaciones2/pages/autenticacionjardin.dart';
+import 'autenticacionjardin.dart';
 import 'package:flutter/rendering.dart';
 
 import 'cursos.dart';

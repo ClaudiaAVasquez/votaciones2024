@@ -4,7 +4,7 @@
 //import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'package:votaciones2/pages/autenticacionjardin.dart';
+import 'autenticacionjardin.dart';
 
 
 final List<cursosprejardin> _cursosprejardin = [
