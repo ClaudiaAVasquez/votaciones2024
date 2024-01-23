@@ -1,11 +1,11 @@
 {
-    "name": "votaciones2",
-    "short_name": "votaciones2",
+    "name": "votaciones2024",
+    "short_name": "votaciones2024",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Nueva version del proyecto de votaciones",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

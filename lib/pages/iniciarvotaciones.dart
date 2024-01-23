@@ -19,56 +19,45 @@ class iniciarvotaciones extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
-                  child: Text("INICIAR VOTACIÓN",
-                      style: TextStyle(
-                        fontSize: 25,
-                      )),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => personero(archivo: archivo)));
-                  }),
-/*            RaisedButton(
-                child: Text("INICIAR VOTACIÓN",
-                    style: TextStyle(
-                      fontSize: 25,
-                    )),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => personero(archivo: archivo)));
-                }),*/
-          ])),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-              barrierDismissible:
+                    child: Text("INICIAR VOTACIÓN",
+                        style: TextStyle(
+                          fontSize: 25,
+                        )),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => personero(archivo: archivo)));
+                    }),
+              ])),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              showDialog(
+                  barrierDismissible:
                   false, //No quita el cuadro de Dialogo al darle clic por fuera de este
-              builder: (context) {
-                return AlertDialog(
-                  title:
+                  builder: (context) {
+                    return AlertDialog(
+                      title:
                       Text("EL ARCHIVO DE VOTACION SE ENCUENTRA GRABADO EN..."),
-                  content: Text(archivo.toString()),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const sede()));
-                      },
-                      child: Text("Aceptar"),
-                    )
-                  ],
-                );
-              },
-              context: context);
-        },
-        tooltip: 'FINALIZAR VOTACIÓN',
-        child: const Icon(Icons.exit_to_app_rounded),
-      ),
+                      content: Text(archivo.toString()),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const sede()));
+                          },
+                          child: Text("Aceptar"),
+                        )
+                      ],
+                    );
+                  },
+                  context: context);
+            },
+            tooltip: 'FINALIZAR VOTACIÓN',
+            child: const Icon(Icons.exit_to_app_rounded),
+          ),
     );
   }
 }

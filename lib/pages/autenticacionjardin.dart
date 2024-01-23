@@ -53,9 +53,9 @@ class cuerpoState extends State<cuerpo> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-        image: AssetImage('assets/images/escudoNC.jpg'),
-        fit: BoxFit.contain,
-      )),
+            image: AssetImage('assets/images/escudoNC.jpg'),
+            fit: BoxFit.contain,
+          )),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -91,8 +91,8 @@ Widget campousuario(BuildContext context) {
       decoration: const InputDecoration(
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-          color: Colors.pink,
-        )),
+              color: Colors.pink,
+            )),
         labelText: "Nombre de usuario",
         hintText: "Usuario",
         prefixIcon: Icon(Icons.person),
@@ -160,26 +160,4 @@ Widget botonentrar(
       },
       child: Text("Ingresar",
           style: TextStyle(fontSize: 25, color: Colors.white)));
-
-/*    FlatButton(
-      color: Colors.blueAccent,
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      onPressed: () async {
-        usuario = leeUsuario.text;
-        password = leePassword.text;
-        numtablet = leenumtablet.text;
-        File archivo = await nombrearchivo(curso, numtablet);
-        if ((usuario == usu) && (password == pass)) {
-          leeUsuario.text = '';
-          leePassword.text = '';
-          leenumtablet.text = '';
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => iniciarvotaciones(archivo: archivo)),
-          );
-        }
-      },
-      child: Text("Ingresar",
-          style: TextStyle(fontSize: 25, color: Colors.white)));*/
 }

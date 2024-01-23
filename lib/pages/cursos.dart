@@ -186,7 +186,7 @@ class escogercursoState extends State<escogercurso> {
         title: const Text("Escoger Curso para votar"),
       ),
       body: funciongrado(texto),
-   );
+    );
   }
 }
 
@@ -194,43 +194,43 @@ funciongrado(texto) {
 
   if (texto == "PreJardin"){
     return ListView.builder(
-      itemCount: _cursosprejardin.length,
-      itemBuilder: (context, index){
-        return ListTile(
-          onTap: (){
-            print(_cursosprejardin[index].cursopre);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context)=> ingresar(usu:"Preescolar", pass:"prejartrans", curso: _cursosprejardin[index].cursopre)),  //Llama la pagina Sede
-            );
-          },
-          title: Text(_cursosprejardin[index].cursopre),
-          leading: CircleAvatar(
-            child: Text(_cursosprejardin[index].cursopre.substring(10,11)),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios),
-        );
-      });
-    } else if (texto == "Jardin"){
-        return ListView.builder(
-          itemCount: _cursosjardin.length,
-          itemBuilder: (context, index){
-            return ListTile(
-              onTap: (){
-                print(_cursosjardin[index].cursojardin);
-                Navigator.push(
-                  context,
-                    MaterialPageRoute(builder: (context)=> ingresar(usu:"Preescolar", pass:"prejartrans", curso: _cursosjardin[index].cursojardin)), //Llama la pagina Sede                );
-                );
-              },
-              title: Text(_cursosjardin[index].cursojardin),
-              leading: CircleAvatar(
-                child: Text(_cursosjardin[index].cursojardin.substring(7,8)),
-              ),
-              trailing: Icon(Icons.arrow_forward_ios),
-            );
+        itemCount: _cursosprejardin.length,
+        itemBuilder: (context, index){
+          return ListTile(
+            onTap: (){
+              print(_cursosprejardin[index].cursopre);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)=> ingresar(usu:"Preescolar", pass:"prejartrans", curso: _cursosprejardin[index].cursopre)),  //Llama la pagina Sede
+              );
+            },
+            title: Text(_cursosprejardin[index].cursopre),
+            leading: CircleAvatar(
+              child: Text(_cursosprejardin[index].cursopre.substring(10,11)),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios),
+          );
         });
-    } else if (texto == "Transicion") {
+  } else if (texto == "Jardin"){
+    return ListView.builder(
+        itemCount: _cursosjardin.length,
+        itemBuilder: (context, index){
+          return ListTile(
+            onTap: (){
+              print(_cursosjardin[index].cursojardin);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context)=> ingresar(usu:"Preescolar", pass:"prejartrans", curso: _cursosjardin[index].cursojardin)), //Llama la pagina Sede                );
+              );
+            },
+            title: Text(_cursosjardin[index].cursojardin),
+            leading: CircleAvatar(
+              child: Text(_cursosjardin[index].cursojardin.substring(7,8)),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios),
+          );
+        });
+  } else if (texto == "Transicion") {
     return ListView.builder(
         itemCount: _cursostransicion.length,
         itemBuilder: (context, index) {
@@ -249,7 +249,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    }  else if (texto == "Primero") {
+  }  else if (texto == "Primero") {
     return ListView.builder(
         itemCount: _cursosprimero.length,
         itemBuilder: (context, index) {
@@ -268,7 +268,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Segundo") {
+  } else if (texto == "Segundo") {
     return ListView.builder(
         itemCount: _cursossegundo.length,
         itemBuilder: (context, index) {
@@ -287,7 +287,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Tercero") {
+  } else if (texto == "Tercero") {
     return ListView.builder(
         itemCount: _cursostercero.length,
         itemBuilder: (context, index) {
@@ -306,7 +306,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Cuarto") {
+  } else if (texto == "Cuarto") {
     return ListView.builder(
         itemCount: _cursoscuarto.length,
         itemBuilder: (context, index) {
@@ -325,7 +325,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Quinto") {
+  } else if (texto == "Quinto") {
     return ListView.builder(
         itemCount: _cursosquinto.length,
         itemBuilder: (context, index) {
@@ -344,7 +344,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Sexto") {
+  } else if (texto == "Sexto") {
     return ListView.builder(
         itemCount: _cursossexto.length,
         itemBuilder: (context, index) {
@@ -363,7 +363,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Septimo") {
+  } else if (texto == "Septimo") {
     return ListView.builder(
         itemCount: _cursosseptimo.length,
         itemBuilder: (context, index) {
@@ -382,7 +382,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Octavo") {
+  } else if (texto == "Octavo") {
     return ListView.builder(
         itemCount: _cursosoctavo.length,
         itemBuilder: (context, index) {
@@ -401,7 +401,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Noveno") {
+  } else if (texto == "Noveno") {
     return ListView.builder(
         itemCount: _cursosnoveno.length,
         itemBuilder: (context, index) {
@@ -420,7 +420,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Decimo") {
+  } else if (texto == "Decimo") {
     return ListView.builder(
         itemCount: _cursosdecimo.length,
         itemBuilder: (context, index) {
@@ -439,7 +439,7 @@ funciongrado(texto) {
             trailing: Icon(Icons.arrow_forward_ios),
           );
         });
-    } else if (texto == "Once") {
+  } else if (texto == "Once") {
     return ListView.builder(
         itemCount: _cursosonce.length,
         itemBuilder: (context, index) {
@@ -572,21 +572,3 @@ class cursosonce{
     this.cursoonce = cursoonce;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

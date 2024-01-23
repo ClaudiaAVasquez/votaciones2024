@@ -40,41 +40,41 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-              Align(
-                alignment: Alignment.topCenter,
-                child: Container(
-                  width: 300,
-                  height: 300,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image:
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Container(
+                      width: 300,
+                      height: 300,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image:
                             AssetImage('assets/images/primariavotaciones.jpeg'),
-                        fit: BoxFit.cover),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              const Text(
-                'GOBIERNO ESCOLAR 2022',
-                style:
+                  const Text(
+                    'GOBIERNO ESCOLAR 2022',
+                    style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
-              ),
-              const Text('COLEGIO NUEVA COLOMBIA IED',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 30)),
-              ElevatedButton(
-                  child: const Text(
-                    "Comenzar",
-                    style: TextStyle(fontSize: 30),
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
-                        MaterialPageRoute(
-                            builder: (context) =>
+                  const Text('COLEGIO NUEVA COLOMBIA IED',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 30)),
+                  ElevatedButton(
+                      child: const Text(
+                        "Comenzar",
+                        style: TextStyle(fontSize: 30),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
+                            MaterialPageRoute(
+                                builder: (context) =>
                                 const sede()) //Llama la pagina Sede
                         );
-                  })
-            ])));
+                      })
+                ])));
   }
 }
