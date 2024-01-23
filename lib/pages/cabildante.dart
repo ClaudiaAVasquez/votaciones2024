@@ -44,6 +44,7 @@ class cabildante extends StatelessWidget{
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       ),
       child: Image.asset(imagen),
       onPressed: () {

@@ -71,6 +71,7 @@ class votarpersonerosState extends State<votarpersoneros> {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         ),
         child: Image.asset(imagen),
         onPressed: () {
