@@ -90,11 +90,11 @@ class escogergradosState extends State<escogergrados> {
                       },
                       itemBuilder: (context) =>
                       [
-                        const PopupMenuItem(
+/*                        const PopupMenuItem(
                           child: Text("Pre-Jardín"),
                           value: "PreJardin",
                         ),
-                        const PopupMenuItem(
+ */                       const PopupMenuItem(
                           child: Text("Jardín"),
                           value: "Jardin",
                         ),

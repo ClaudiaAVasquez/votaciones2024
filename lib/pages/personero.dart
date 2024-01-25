@@ -73,7 +73,7 @@ class votarpersonerosState extends State<votarpersoneros> {
           backgroundColor: color,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         ),
-        child: Image.asset(imagen),
+        child: Image.asset(imagen, height: 300, width: 300, ),
         onPressed: () {
           showDialog(
               barrierDismissible:

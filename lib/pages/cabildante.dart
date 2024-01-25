@@ -58,7 +58,8 @@ class cabildante extends StatelessWidget{
                   TextButton(
                     onPressed: () {
                       cabil = numcabil;
-                      guardarvoto(archivo, person, contra, cabil);
+                      // llamar a la votacion del curso
+                      guardarvoto(archivo, person, contra, cabil); // falta agregar el nuevo parametro
                       Navigator.push(
                         contexto,
                         MaterialPageRoute(
