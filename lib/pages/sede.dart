@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:votaciones2/pages/autenticacionjardin.dart';
+import 'autenticacionjardin.dart';
 import 'package:flutter/rendering.dart';
 
 import 'cursos.dart';
@@ -71,7 +71,7 @@ class escogergradosState extends State<escogergrados> {
                     Container(
                       child: const Text("PREESCOLAR",
                           style: TextStyle(fontSize: 25, color: Colors.black)),
-                          padding: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(20),
                     ),
                     PopupMenuButton(
                       color: Colors.white,
@@ -90,11 +90,11 @@ class escogergradosState extends State<escogergrados> {
                       },
                       itemBuilder: (context) =>
                       [
-                        const PopupMenuItem(
+/*                        const PopupMenuItem(
                           child: Text("Pre-Jardín"),
                           value: "PreJardin",
                         ),
-                        const PopupMenuItem(
+ */                       const PopupMenuItem(
                           child: Text("Jardín"),
                           value: "Jardin",
                         ),
@@ -105,7 +105,7 @@ class escogergradosState extends State<escogergrados> {
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(),
+                        padding: EdgeInsets.symmetric(),
                         child: TextField(
                           controller: controlador,
                           decoration: InputDecoration(
@@ -153,8 +153,8 @@ class escogergradosState extends State<escogergrados> {
                           print(_value);
                           controlador.text = _value;
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
+                              context,
+                              MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
                         });
                       },
                       itemBuilder: (context) =>
@@ -286,7 +286,7 @@ class escogergradosState extends State<escogergrados> {
                           print(_value);
                           controlador.text = _value;
                           Navigator.push(
-                            context,
+                              context,
                               MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
                         });
                       },
@@ -338,11 +338,3 @@ class escogergradosState extends State<escogergrados> {
     );
   }
 }
-
-
-//conteo(_contadorpersonero1, _contadorpersonero2, _contadorpersonero3, _contadorpersonero4, _contadorpersonero5,
-//        _contadorpersonero6, _contadorcontralor1, _contadorcontralor2, _contadorcontralor3, _contadorcontralor4,
-//        _contadorcontralor5, _contadorcontralor6, _contadorcontralor7, _contadorcontralor8, _contadorcabildante1,
-//        _contadorcabildante2, _contadorcabildante3, _contadorcabildante4) {
-
-//}
