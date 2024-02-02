@@ -4,8 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'contralor.dart';
 
-import 'archivo.dart';
-
 class personero extends StatelessWidget {
   const personero({Key? key, required this.archivo}) : super(key: key);
   final File archivo;
@@ -73,7 +71,12 @@ class votarpersonerosState extends State<votarpersoneros> {
           backgroundColor: color,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         ),
-        child: Image.asset(imagen, height: 300, width: 300, ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget> [
+              Image.asset(imagen, height: 200, width: 200, ),
+              Text(" $nombrePersonero ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
+            ]
+        ),
         onPressed: () {
           showDialog(
               barrierDismissible:
@@ -92,11 +95,12 @@ class votarpersonerosState extends State<votarpersoneros> {
                         child: Text("No")),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
+                        Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
                               builder: (contexto) => contralor(
-                                  archivo: archivo, person: numPerson)),
+                                  archivo: archivo, voto: numPerson)),
+                              (Route<dynamic> route) => false,
                         );
                       },
                       child: Text("Si"),

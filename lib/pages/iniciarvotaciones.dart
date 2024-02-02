@@ -4,6 +4,8 @@ import 'dart:io';
 
 import 'sede.dart';
 
+//String votoPersonero = "", votoContralor = "", votoCabildante = "", votoRepresentante = "";
+
 class iniciarvotaciones extends StatelessWidget {
   const iniciarvotaciones({Key? key, required this.archivo});
   final File archivo;
@@ -19,16 +21,19 @@ class iniciarvotaciones extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
-                    child: Text("INICIAR VOTACIÓN",
+                    child: const Text("INICIAR VOTACIÓN",
                         style: TextStyle(
                           fontSize: 25,
                         )),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => personero(archivo: archivo)));
-                    }),
+                              builder: (context) => personero(archivo: archivo)),
+                        (Route<dynamic> route) => false,)
+                      ;
+                    }
+                ),
               ])),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
@@ -38,7 +43,7 @@ class iniciarvotaciones extends StatelessWidget {
                   builder: (context) {
                     return AlertDialog(
                       title:
-                      Text("EL ARCHIVO DE VOTACION SE ENCUENTRA GRABADO EN..."),
+                      const Text("EL ARCHIVO DE VOTACION SE ENCUENTRA GRABADO EN..."),
                       content: Text(archivo.toString()),
                       actions: <Widget>[
                         TextButton(
@@ -48,7 +53,7 @@ class iniciarvotaciones extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => const sede()));
                           },
-                          child: Text("Aceptar"),
+                          child: const Text("Aceptar"),
                         )
                       ],
                     );
