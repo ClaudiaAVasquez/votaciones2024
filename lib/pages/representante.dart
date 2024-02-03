@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'archivo.dart';
-import 'iniciarvotaciones.dart';
 import 'dart:io';
-
-var cabil = "0";
+import 'globales.dart';
 
 class representante extends StatelessWidget{
-  representante({Key? key, required this.archivo, required this.voto});
+  representante({Key? key, required this.archivo});
   final File archivo;
-  final String voto;
-
 
   @override
   Widget build(BuildContext context){
@@ -43,16 +39,16 @@ class representante extends StatelessWidget{
 
     switch (curso) {
       case "101":
-        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/bart.png', "Bart Simpson", "1", archivo, voto));
-        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/lisa.jpeg', "Lisa Simpson", "2", archivo, voto));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/bart.png', "Bart Simpson", "1", archivo));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/lisa.jpeg', "Lisa Simpson", "2", archivo));
       case "301":
-        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/piolin.png', "Piolin", "3", archivo, voto));
-        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/silvestre.jpeg', "Silvestre", "2", archivo, voto));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/piolin.png', "Piolin", "3", archivo));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/silvestre.jpeg', "Silvestre", "2", archivo));
       case "1101":
-        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/taz.jpeg', "Demonio de Tazmania", "3", archivo, voto));
-        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/bugs.jpeg', "Bugs Bunny", "2", archivo, voto));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/taz.jpeg', "Demonio de Tazmania", "3", archivo));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/bugs.jpeg', "Bugs Bunny", "2", archivo));
       default:
-        listaRepresentantes.add(BotonRepresentante(context, Colors.white, 'assets/images/finalizar.jpeg', "Finalizar Votacion", "0", archivo, voto));
+        listaRepresentantes.add(BotonRepresentante(context, Colors.white, 'assets/images/finalizar.jpeg', "Finalizar Votacion", "0", archivo));
     }
 
     return listaRepresentantes;
@@ -60,7 +56,7 @@ class representante extends StatelessWidget{
 
   // Genera el boton para cada candidato
 
-  Widget BotonRepresentante(BuildContext contexto, var color, String imagen, String nombreRepresentante, String numrepre, File archivo, String voto) {
+  Widget BotonRepresentante(BuildContext contexto, var color, String imagen, String nombreRepresentante, String numrepre, File archivo) {
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -68,7 +64,7 @@ class representante extends StatelessWidget{
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget> [
           Image.asset(imagen, height: 200, width: 200, ),
           Text(" $nombreRepresentante ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
@@ -77,7 +73,7 @@ class representante extends StatelessWidget{
       onPressed: () {
         showDialog(
             barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-            builder: (contexto){
+            builder: (context){
               return AlertDialog(
                 title: const Text("Votacion Representante"),
                 content: Text(
@@ -86,22 +82,15 @@ class representante extends StatelessWidget{
                   TextButton(
                       onPressed: () {
                         print("No");
-                        Navigator.pop(contexto);
+                        Navigator.pop(context);
                       },
                       child: Text("No")
                   ),
                   TextButton(
                     onPressed: () {
-                      //Navigator.pop(context);
                       voto = "$voto,$numrepre";
-                      guardarvoto(archivo, voto); // falta agregar el nuevo parametro
-
-                      Navigator.pushAndRemoveUntil(
-                        contexto,
-                        MaterialPageRoute(
-                            builder: (context) => iniciarvotaciones(archivo: archivo)),
-                            (Route<dynamic> route) => false,
-                      );
+                      Navigator.pop(context);
+                      Navigator.pop(contexto);
                     },
                     child: const Text("Si"),
                   )

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'representante.dart';
 import 'dart:io';
 
-var cabil = "0";
+import 'globales.dart';
 
 class cabildante extends StatelessWidget{
-  cabildante({Key? key, required this.archivo, required this.voto});
+  cabildante({Key? key, required this.archivo});
   final File archivo;
-  final String voto;
-
 
   @override
   Widget build(BuildContext context){
@@ -27,24 +23,24 @@ class cabildante extends StatelessWidget{
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: <Widget> [
-              BotonCabildante(context, Colors.deepOrangeAccent, 'assets/images/MariaValentinaGonzalez.jpg', "María Valentina Gonzalez", "3", archivo, voto),
-              BotonCabildante(context, Colors.pink[100], 'assets/images/KarolValentinaDiaz.jpg', "Karol Valentina Díaz", "2", archivo, voto),
-              BotonCabildante(context, Colors.red, 'assets/images/SharickMelissaMoreno.jpg', "Sharick Melissa Moreno", "1", archivo, voto),
-              BotonCabildante(context, Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B", archivo, voto),
+              BotonCabildante(context, Colors.deepOrangeAccent, 'assets/images/MariaValentinaGonzalez.jpg', "María Valentina Gonzalez", "3", archivo),
+              BotonCabildante(context, Colors.pink[100], 'assets/images/KarolValentinaDiaz.jpg', "Karol Valentina Díaz", "2", archivo),
+              BotonCabildante(context, Colors.red, 'assets/images/SharickMelissaMoreno.jpg', "Sharick Melissa Moreno", "1", archivo),
+              BotonCabildante(context, Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B", archivo),
             ]
         ),
       ),
     );
   }
 
-  Widget BotonCabildante(BuildContext contexto, var color, String imagen, String nombreCabildante, String numcabil, File archivo, String voto) {
+  Widget BotonCabildante(BuildContext contexto, var color, String imagen, String nombreCabildante, String numcabil, File archivo) {
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget> [
             Image.asset(imagen, height: 200, width: 200, ),
             Text(" $nombreCabildante ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
@@ -53,7 +49,7 @@ class cabildante extends StatelessWidget{
       onPressed: () {
         showDialog(
             barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-            builder: (contexto) {
+            builder: (context) {
               return AlertDialog(
                 title: const Text("Votación Cabildante"),
                 content: Text(
@@ -62,20 +58,15 @@ class cabildante extends StatelessWidget{
                   TextButton(
                       onPressed: () {
                         print("No");
-                        Navigator.pop(contexto);
+                        Navigator.pop(context);
                       },
                       child: Text("No")
                   ),
                   TextButton(
                     onPressed: () {
-                      //Navigator.pop(context);
                       voto = "$voto,$numcabil";
-                      Navigator.pushAndRemoveUntil(
-                        contexto,
-                        MaterialPageRoute(builder: (contexto) =>
-                            representante(archivo: archivo, voto: voto),
-                        ),
-                            (Route<dynamic> route) => false,);
+                      Navigator.pop(context);
+                      Navigator.pop(contexto);
                     },
                     child: const Text("Si"),
                   )

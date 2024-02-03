@@ -1,16 +1,9 @@
 import 'dart:io';
-//import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 
 //Variable de la ubicación
-/*String get _localPath() {
-  final Future<Directory> directorio = getApplicationDocumentsDirectory();
-  print("Directorio $directorio.path");
-
-  return directorio;
-}*/
 
 Future<String> get _localPath async {
 //  final directory = await getApplicationDocumentsDirectory();
@@ -61,18 +54,25 @@ int existe(File nombre) {
   return 1;
 }
 
-guardarvoto(File archivo, String voto) {
+String guardarvoto(File archivo, String voto) {
 
-  var fecha = DateTime.now();
+  var fecha = DateTime.now().toLocal();
+
+  String codigo = "${voto.replaceAll(",", "")}${fecha.millisecond.toString()}${fecha.microsecond.toString()}";
 
   print("Guardarvoto");
   if (existe(archivo) == 1) {
     // Generar el codigo del voto y mostrarlo en pantalla y agregarlo al registro
 
-    var registro = "${fecha.toLocal().toString()},$voto\n";
+    var registro = "${obtenerCurso(archivo)},${fecha.year.toString()}-${fecha.month.toString()}-${fecha.day.toString()},${fecha.hour.toString()}:${fecha.minute.toString()}:${fecha.second.toString()},$voto,$codigo\n";
     print(registro);
     archivo.writeAsString(registro, mode: FileMode.append);
+
+
+    return codigo;
   }
+
+  return "";
 }
 
 String obtenerCurso(File archivo) {
