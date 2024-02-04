@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'iniciarvotaciones.dart';
-import 'personero.dart';
 
 import 'archivo.dart';
 import "dart:io";
@@ -15,8 +14,7 @@ var numtablet = "";
 
 class ingresar extends StatelessWidget {
   const ingresar(
-      {Key? key, required this.usu, required this.pass, required this.curso})
-      : super(key: key);
+      {super.key, required this.usu, required this.pass, required this.curso});
   final String usu, pass, curso;
 
   @override
@@ -32,8 +30,7 @@ class ingresar extends StatelessWidget {
 
 class cuerpo extends StatefulWidget {
   const cuerpo(
-      {Key? key, required this.usu, required this.pass, required this.curso})
-      : super(key: key);
+      {super.key, required this.usu, required this.pass, required this.curso});
   final String usu, pass, curso;
 
   @override
@@ -84,7 +81,7 @@ Widget Sign_in(BuildContext context) {
 }
 
 Widget campousuario(BuildContext context) {
-  var textController = TextEditingController();
+//  var textController = TextEditingController();
   return Container(
     padding: const EdgeInsets.all(20), //Darle bordes al TextField
     child: TextField(
@@ -135,8 +132,7 @@ Widget campotablet(BuildContext context) {
       ));
 }
 
-Widget botonentrar(
-    BuildContext context, String usu, String pass, String curso) {
+Widget botonentrar(BuildContext context, String usu, String pass, String curso) {
   return TextButton(
       style: TextButton.styleFrom(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -146,15 +142,38 @@ Widget botonentrar(
         usuario = leeUsuario.text;
         password = leePassword.text;
         numtablet = leenumtablet.text;
-        File archivo = await nombrearchivo(curso, numtablet);
         if ((usuario == usu) && (password == pass)) {
+          File archivo = await nombreArchivo(curso, numtablet);
           leeUsuario.text = '';
           leePassword.text = '';
           leenumtablet.text = '';
-          Navigator.push(
+          Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
                 builder: (context) => iniciarvotaciones(archivo: archivo)),
+              (Route<dynamic> route) => false,
+          );
+        }
+        else {
+          showDialog(
+            barrierDismissible:
+            false,
+            //No quita el cuadro de Dialogo al darle clic por fuera de este
+            builder: (context) {
+              return
+                AlertDialog(
+                    title: Text("Error de Usuario"),
+                    content: Text(
+                        "Usuario y contraseña no corresponden, por favor verificar"),
+                    actions: <Widget>[
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("Ok")),
+                    ]);
+            },
+            context: context,
           );
         }
       },

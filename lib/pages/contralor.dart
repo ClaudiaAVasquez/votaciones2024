@@ -2,12 +2,11 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'cabildante.dart';
+import 'globales.dart';
 
 class contralor extends StatelessWidget{
-  contralor({Key? key, required this.archivo, required this.person}) : super(key : key);
+  contralor({Key? key, required this.archivo}) : super(key : key);
   final File archivo;
-  final String person;
 
   @override
   Widget build(BuildContext context){
@@ -23,14 +22,14 @@ class contralor extends StatelessWidget{
             mainAxisSpacing: 5,
             children: <Widget>[
 
-              BotonContralor(context, Colors.pinkAccent[100], 'assets/images/DannaSofiaSalamanca.jpg', "Danna Sofia Salamanca", "7", archivo, person),
-              BotonContralor(context, Colors.yellow, 'assets/images/DianaNataliMunoz.jpg', "Diana Natali Muñoz", "4", archivo, person),
-              BotonContralor(context, Colors.deepPurple, 'assets/images/JoelStevenMedina.jpg', "Joel Steven Medina", "3", archivo, person),
-              BotonContralor(context, Colors.orange, 'assets/images/AngieLorenaDiaz.jpg', "Angie Lorena Diaz", "6", archivo, person),
-              BotonContralor(context, Colors.lightGreenAccent, 'assets/images/AlexandraUrdaneta.jpg', "Alexandra Urdaneta", "5", archivo, person),
-              BotonContralor(context, Colors.blue, 'assets/images/SarayNicoleElegalde.jpg', "Saray Nicole Elegalde", "1", archivo, person),
-              BotonContralor(context, Colors.pink, 'assets/images/KarolDanielaLopez.jpg', "Karol Daniela López", "2", archivo, person),
-              BotonContralor(context, Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en BLANCO", "B", archivo, person),
+              BotonContralor(context, Colors.pinkAccent[100], 'assets/images/DannaSofiaSalamanca.jpg', "Danna Sofia Salamanca", "7", archivo),
+              BotonContralor(context, Colors.yellow, 'assets/images/DianaNataliMunoz.jpg', "Diana Natali Muñoz", "4", archivo),
+              BotonContralor(context, Colors.deepPurple, 'assets/images/JoelStevenMedina.jpg', "Joel Steven Medina", "3", archivo),
+              BotonContralor(context, Colors.orange, 'assets/images/AngieLorenaDiaz.jpg', "Angie Lorena Diaz", "6", archivo),
+              BotonContralor(context, Colors.lightGreenAccent, 'assets/images/AlexandraUrdaneta.jpg', "Alexandra Urdaneta", "5", archivo),
+              BotonContralor(context, Colors.blue, 'assets/images/SarayNicoleElegalde.jpg', "Saray Nicole Elegalde", "1", archivo),
+              BotonContralor(context, Colors.pink, 'assets/images/KarolDanielaLopez.jpg', "Karol Daniela López", "2", archivo),
+              BotonContralor(context, Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en BLANCO", "B", archivo),
 
             ]
         ),
@@ -38,17 +37,22 @@ class contralor extends StatelessWidget{
     );
   }
 
-  Widget BotonContralor(BuildContext contexto, var color, String imagen, String nombreContralor, String numContralor, File archivo, String person) {
+  Widget BotonContralor(BuildContext contexto, var color, String imagen, String nombreContralor, String numContralor, File archivo) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       ),
-      child: Image.asset(imagen),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget> [
+            Image.asset(imagen, height: 200, width: 200, ),
+            Text(" $nombreContralor ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
+          ]
+      ),
       onPressed: () {
         showDialog(
             barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-            builder: (contexto){
+            builder: (context){
               return AlertDialog(
                 title: Text("Votación Contralor"),
                 content: Text("Estas votando por $nombreContralor, estas seguro?"),
@@ -56,17 +60,16 @@ class contralor extends StatelessWidget{
                   TextButton(
                       onPressed: () {
                         print("No");
-                        Navigator.pop(contexto);
+                        Navigator.pop(context);
                       },
                       child: Text("No")
                   ),
                   TextButton(
                     onPressed: () {
                       //Navigator.pop(context);
-                      Navigator.push(
-                        contexto,
-                        MaterialPageRoute(builder: (contexto) => cabildante(archivo: archivo, person: person, contra: numContralor)),
-                      );
+                      voto = "$voto,$numContralor";
+                      Navigator.pop(context);
+                      Navigator.pop(contexto);
                     },
                     child: Text("Si"),
                   )

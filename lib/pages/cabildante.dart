@@ -1,23 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'archivo.dart';
-import 'iniciarvotaciones.dart';
-import 'personero.dart';
 import 'dart:io';
 
-var fecha = DateTime.now();
+import 'globales.dart';
 
 class cabildante extends StatelessWidget{
-  cabildante({Key? key, required this.archivo, required this.person, required this.contra});
+  cabildante({Key? key, required this.archivo});
   final File archivo;
-  final String person;
-  final String contra;
-  var cabil = "0";
-  var codigo;
 
   @override
   Widget build(BuildContext context){
+
+    // aqui debe ir la creacion de la lista
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("CABILDANTE"),
@@ -29,44 +23,52 @@ class cabildante extends StatelessWidget{
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: <Widget> [
-              BotonCabildante(context, Colors.deepOrangeAccent, 'assets/images/MariaValentinaGonzalez.jpg', "3", archivo, person, contra),
-              BotonCabildante(context, Colors.pink[100], 'assets/images/KarolValentinaDiaz.jpg', "2", archivo, person, contra),
-              BotonCabildante(context, Colors.red, 'assets/images/SharickMelissaMoreno.jpg', "1", archivo, person, contra),
-              BotonCabildante(context, Colors.white, 'assets/images/Votoenblanco.jpg', "B", archivo, person, contra),
+              BotonCabildante(context, Colors.deepOrangeAccent, 'assets/images/MariaValentinaGonzalez.jpg', "María Valentina Gonzalez", "3", archivo),
+              BotonCabildante(context, Colors.pink[100], 'assets/images/KarolValentinaDiaz.jpg', "Karol Valentina Díaz", "2", archivo),
+              BotonCabildante(context, Colors.red, 'assets/images/SharickMelissaMoreno.jpg', "Sharick Melissa Moreno", "1", archivo),
+              BotonCabildante(context, Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B", archivo),
             ]
         ),
       ),
     );
   }
 
-  Widget BotonCabildante(BuildContext contexto, var color, String imagen, String numcabil, File archivo, String person, String contra) {
+  Widget BotonCabildante(BuildContext contexto, var color, String imagen, String nombreCabildante, String numcabil, File archivo) {
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       ),
-      child: Image.asset(imagen),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget> [
+            Image.asset(imagen, height: 200, width: 200, ),
+            Text(" $nombreCabildante ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
+          ]
+      ),
       onPressed: () {
         showDialog(
             barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-            builder: (contexto){
+            builder: (context) {
               return AlertDialog(
-                title: Text("CODIGO DE VOTACIÓN"),
-                content: Text(person + contra + cabil),
+                title: const Text("Votación Cabildante"),
+                content: Text(
+                    "Estas votando por $nombreCabildante, estas seguro?"),
                 actions: <Widget>[
                   TextButton(
+                      onPressed: () {
+                        print("No");
+                        Navigator.pop(context);
+                      },
+                      child: Text("No")
+                  ),
+                  TextButton(
                     onPressed: () {
-                      cabil = numcabil;
-                      // llamar a la votacion del curso
-                      guardarvoto(archivo, person, contra, cabil); // falta agregar el nuevo parametro
-                      Navigator.push(
-                        contexto,
-                        MaterialPageRoute(
-                            builder: (context) => iniciarvotaciones(archivo: archivo)),
-                      );
+                      voto = "$voto,$numcabil";
+                      Navigator.pop(context);
+                      Navigator.pop(contexto);
                     },
-                    child: Text("Aceptar"),
+                    child: const Text("Si"),
                   )
                 ],
               );
