@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'autenticacionjardin.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 
 import 'cursos.dart';
 
 class sede extends StatelessWidget {
-  const sede({Key? key}) : super(key: key);
+  const sede({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +12,10 @@ class sede extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Grados"),
         leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {},
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+          },
         ),
       ),
       body: escogergrados(),
@@ -69,9 +69,11 @@ class escogergradosState extends State<escogergrados> {
                         width: 200,),
                     ),
                     Container(
+                      padding: const EdgeInsets.all(10),
                       child: const Text("PREESCOLAR",
-                          style: TextStyle(fontSize: 25, color: Colors.black)),
-                      padding: EdgeInsets.all(20),
+                          style: TextStyle(fontSize: 25, color: Colors.black),
+                          textAlign: TextAlign.center,
+                        ),
                     ),
                     PopupMenuButton(
                       color: Colors.white,
@@ -94,18 +96,18 @@ class escogergradosState extends State<escogergrados> {
                           child: Text("Pre-Jardín"),
                           value: "PreJardin",
                         ),
- */                       const PopupMenuItem(
-                          child: Text("Jardín"),
+*/                       const PopupMenuItem(
                           value: "Jardin",
+                          child: Text("Jardín"),
                         ),
                         const PopupMenuItem(
-                          child: Text('Transición'),
                           value: "Transicion",
-                        ),
-                      ],
+                          child: Text('Transición'),
+                          ),
+                        ],
                     ),
                     Container(
-                        padding: EdgeInsets.symmetric(),
+                        padding: const EdgeInsets.symmetric(),
                         child: TextField(
                           controller: controlador,
                           decoration: InputDecoration(
@@ -119,8 +121,6 @@ class escogergradosState extends State<escogergrados> {
                 )
             ),
             ),
-
-
 
             //Card para GRADO PRIMERO Y SEGUNDO
             Flexible(child: Card(
@@ -140,8 +140,8 @@ class escogergradosState extends State<escogergrados> {
                     ),
                     Container(
                       child: const Text("PRIMERO Y SEGUNDO",
-                          style: TextStyle(fontSize: 25, color: Colors.black)),
-                      padding: EdgeInsets.all(20),
+                          style: TextStyle(fontSize: 25, color: Colors.black), textAlign: TextAlign.center),
+                      padding: EdgeInsets.all(10),
                     ),
                     PopupMenuButton(
                       color: Colors.white,
@@ -185,8 +185,6 @@ class escogergradosState extends State<escogergrados> {
             ),
             ),
 
-
-
             //Card para GRADO TERCERO, CUARTO Y QUINTO
             Flexible(child: Card(
                 shape: RoundedRectangleBorder(
@@ -204,9 +202,9 @@ class escogergradosState extends State<escogergrados> {
                         width: 200,),
                     ),
                     Container(
-                      child: const Text("3o - 4o - 5o",
-                          style: TextStyle(fontSize: 25, color: Colors.black)),
-                      padding: EdgeInsets.all(20),
+                      child: const Text("3° - 4° - 5°",
+                          style: TextStyle(fontSize: 25, color: Colors.black), textAlign: TextAlign.center),
+                      padding: EdgeInsets.all(10),
                     ),
                     PopupMenuButton(
                       color: Colors.white,
@@ -254,7 +252,6 @@ class escogergradosState extends State<escogergrados> {
             ),
             ),
 
-
             //Card para SECUNDARIA
             Flexible(child: Card(
                 shape: RoundedRectangleBorder(
@@ -273,8 +270,8 @@ class escogergradosState extends State<escogergrados> {
                     ),
                     Container(
                       child: const Text("SECUNDARIA",
-                          style: TextStyle(fontSize: 25, color: Colors.black)),
-                      padding: EdgeInsets.all(20),
+                          style: TextStyle(fontSize: 25, color: Colors.black), textAlign: TextAlign.center),
+                      padding: EdgeInsets.all(10),
                     ),
                     PopupMenuButton(
                       color: Colors.white,

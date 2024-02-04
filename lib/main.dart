@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
   final String title;
 
   @override
@@ -53,14 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  const Text(
-                    'GOBIERNO ESCOLAR 2022',
-                    style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  const Text('GOBIERNO ESCOLAR 2024',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                   ),
                   const Text('COLEGIO NUEVA COLOMBIA IED',
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 30)),
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                   ElevatedButton(
                       child: const Text(
                         "Comenzar",

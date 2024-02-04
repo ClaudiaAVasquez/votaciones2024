@@ -1,14 +1,12 @@
-//import 'dart:js';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'contralor.dart';
 
-import 'archivo.dart';
+import 'globales.dart';
 
 class personero extends StatelessWidget {
-  const personero({Key? key, required this.archivo}) : super(key: key);
-  final File archivo;
+  personero({super.key, required this.archivo});
+  File archivo;
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +29,15 @@ class personero extends StatelessWidget {
         ],
       ),
       body: votarpersoneros(archivo: archivo),
+
     );
   }
 }
 
 class votarpersoneros extends StatefulWidget {
-  const votarpersoneros({Key? key, required this.archivo}) : super(key: key);
+  votarpersoneros({Key? key, required this.archivo}) : super(key: key);
   final File archivo;
+
   @override
   State<StatefulWidget> createState() {
     return votarpersonerosState(archivo: archivo);
@@ -46,7 +46,7 @@ class votarpersoneros extends StatefulWidget {
 
 class votarpersonerosState extends State<votarpersoneros> {
   votarpersonerosState({Key? key, required this.archivo});
-  final File archivo;
+  File archivo;
 
   @override
   Widget build(BuildContext context) {
@@ -73,31 +73,33 @@ class votarpersonerosState extends State<votarpersoneros> {
           backgroundColor: color,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         ),
-        child: Image.asset(imagen, height: 300, width: 300, ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget> [
+              Image.asset(imagen, height: 200, width: 200, ),
+              Text(" $nombrePersonero ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
+            ]
+        ),
         onPressed: () {
           showDialog(
               barrierDismissible:
               false, //No quita el cuadro de Dialogo al darle clic por fuera de este
-              builder: (contexto) {
+              builder: (context) {
                 return AlertDialog(
-                  title: Text("Votación Personero"),
+                  title: const Text("Votación Personero"),
                   content: Text(
                       "Estas votando por $nombrePersonero, estas seguro?"),
                   actions: <Widget>[
                     TextButton(
                         onPressed: () {
                           print("No");
-                          Navigator.pop(contexto);
+                          Navigator.pop(context);
                         },
                         child: Text("No")),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (contexto) => contralor(
-                                  archivo: archivo, person: numPerson)),
-                        );
+                          voto = numPerson;
+                          Navigator.pop(context);
+                          Navigator.pop(contexto);
                       },
                       child: Text("Si"),
                     )
