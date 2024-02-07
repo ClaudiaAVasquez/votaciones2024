@@ -1,12 +1,8 @@
-import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'globales.dart';
+import 'botonCandidato.dart';
 
 class personero extends StatelessWidget {
-  personero({super.key, required this.archivo});
-  File archivo;
+  personero({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,39 +10,37 @@ class personero extends StatelessWidget {
       appBar: AppBar(
         title: const Text("PERSONERO"),
         leading: IconButton(
-          icon: Icon(Icons.menu),
+          icon: const Icon(Icons.menu),
           onPressed: () {},
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.help),
+            icon: const Icon(Icons.help),
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             onPressed: () {},
           ),
         ],
       ),
-      body: votarpersoneros(archivo: archivo),
+      body: votarpersoneros(),
 
     );
   }
 }
 
 class votarpersoneros extends StatefulWidget {
-  votarpersoneros({Key? key, required this.archivo}) : super(key: key);
-  final File archivo;
+  votarpersoneros({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return votarpersonerosState(archivo: archivo);
+    return votarpersonerosState();
   }
 }
 
 class votarpersonerosState extends State<votarpersoneros> {
-  votarpersonerosState({Key? key, required this.archivo});
-  File archivo;
+  votarpersonerosState({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,56 +51,11 @@ class votarpersonerosState extends State<votarpersoneros> {
           crossAxisSpacing: 3,
           mainAxisSpacing: 3,
           children: <Widget>[
-            BotonPersonero(context, Colors.pinkAccent[100], 'assets/images/AnaSofiaArtunduaga.jpg', "Ana Sofia Artunduaga", "2", archivo),
-            BotonPersonero(context, Colors.deepPurpleAccent, 'assets/images/AndresCamiloChipatecua.jpg', "Andres Camilo Chipatecua", "4", archivo),
-            BotonPersonero(context, Colors.pink, 'assets/images/PaulaAndreaVillamil.jpg', "Paula Andrea Villamil", "1", archivo),
-            BotonPersonero(context, Colors.lightGreenAccent, 'assets/images/AshelyKatheryneTenza.jpg', "Ashely Katherine Tenza", "5", archivo),
-            BotonPersonero(context, Colors.red, 'assets/images/EvelynSaenz.jpg', "Evelyn Saenz", "6", archivo),
-            BotonPersonero(context, Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B", archivo),
+            BotonCandidato(context, "Personero", Colors.deepPurpleAccent, 'assets/images/MychellAlvear.jpg', "Mychell Sofía Alvear Salas", "2"),
+            BotonCandidato(context, "Personero", Colors.green, 'assets/images/JeroenAndresTenza.jpg', "Jeroen Andrés Tenza", "4"),
+            BotonCandidato(context, "Personero", Colors.red, 'assets/images/SantiagoBernal.jpg', "Jair Santiago Bernal", "7"),
+            BotonCandidato(context, "Personero", Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B"),
           ]),
     );
-  }
-
-  Widget BotonPersonero(BuildContext contexto, var color, String imagen, String nombrePersonero, String numPerson, File archivo){
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: color,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-        ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget> [
-              Image.asset(imagen, height: 200, width: 200, ),
-              Text(" $nombrePersonero ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
-            ]
-        ),
-        onPressed: () {
-          showDialog(
-              barrierDismissible:
-              false, //No quita el cuadro de Dialogo al darle clic por fuera de este
-              builder: (context) {
-                return AlertDialog(
-                  title: const Text("Votación Personero"),
-                  content: Text(
-                      "Estas votando por $nombrePersonero, estas seguro?"),
-                  actions: <Widget>[
-                    TextButton(
-                        onPressed: () {
-                          print("No");
-                          Navigator.pop(context);
-                        },
-                        child: Text("No")),
-                    TextButton(
-                      onPressed: () {
-                          voto = numPerson;
-                          Navigator.pop(context);
-                          Navigator.pop(contexto);
-                      },
-                      child: Text("Si"),
-                    )
-                  ],
-                );
-              },
-              context: contexto);
-        });
   }
 }

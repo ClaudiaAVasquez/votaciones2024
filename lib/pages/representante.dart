@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'archivo.dart';
-import 'dart:io';
+import 'botonCandidato.dart';
 import 'globales.dart';
 
 class representante extends StatelessWidget{
-  representante({Key? key, required this.archivo});
-  final File archivo;
+  representante({Key? key});
 
   @override
   Widget build(BuildContext context){
@@ -35,70 +32,20 @@ class representante extends StatelessWidget{
   List<Widget> crearLista(BuildContext context) {
     List<Widget> listaRepresentantes = [];
 
-    String curso = obtenerCurso(archivo);
-
     switch (curso) {
       case "101":
-        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/bart.png', "Bart Simpson", "1", archivo));
-        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/lisa.jpeg', "Lisa Simpson", "2", archivo));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.blueGrey, 'assets/images/bart.png', "Bart Simpson", "1"));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.cyan, 'assets/images/lisa.jpeg', "Lisa Simpson", "2"));
       case "301":
-        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/piolin.png', "Piolin", "3", archivo));
-        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/silvestre.jpeg', "Silvestre", "2", archivo));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.blueGrey, 'assets/images/piolin.png', "Piolin", "3"));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.cyan, 'assets/images/silvestre.jpeg', "Silvestre", "2"));
       case "1101":
-        listaRepresentantes.add(BotonRepresentante(context, Colors.blueGrey, 'assets/images/taz.jpeg', "Demonio de Tazmania", "3", archivo));
-        listaRepresentantes.add(BotonRepresentante(context, Colors.cyan, 'assets/images/bugs.jpeg', "Bugs Bunny", "2", archivo));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.blueGrey, 'assets/images/taz.jpeg', "Demonio de Tazmania", "3"));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.cyan, 'assets/images/bugs.jpeg', "Bugs Bunny", "2"));
       default:
-        listaRepresentantes.add(BotonRepresentante(context, Colors.white, 'assets/images/finalizar.jpeg', "Finalizar Votacion", "0", archivo));
+        listaRepresentantes.add(BotonCandidato(context, "Representante", Colors.white, 'assets/images/finalizar.jpeg', "Finalizar Votación", "0"));
     }
 
     return listaRepresentantes;
-  }
-
-  // Genera el boton para cada candidato
-
-  Widget BotonRepresentante(BuildContext contexto, var color, String imagen, String nombreRepresentante, String numrepre, File archivo) {
-
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget> [
-          Image.asset(imagen, height: 200, width: 200, ),
-          Text(" $nombreRepresentante ", style: const TextStyle(backgroundColor: Colors.white, color: Colors.black, fontSize: 15),),
-        ],
-      ),
-      onPressed: () {
-        showDialog(
-            barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-            builder: (context){
-              return AlertDialog(
-                title: const Text("Votacion Representante"),
-                content: Text(
-                    "Estas votando por $nombreRepresentante, estas seguro?"),
-                actions: <Widget>[
-                  TextButton(
-                      onPressed: () {
-                        print("No");
-                        Navigator.pop(context);
-                      },
-                      child: Text("No")
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      voto = "$voto,$numrepre";
-                      Navigator.pop(context);
-                      Navigator.pop(contexto);
-                    },
-                    child: const Text("Si"),
-                  )
-                ],
-              );
-            },
-            context: contexto);
-      },
-    );
   }
 }

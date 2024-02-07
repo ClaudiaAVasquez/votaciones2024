@@ -8,8 +8,7 @@ import 'personero.dart';
 import 'contralor.dart';
 import 'cabildante.dart';
 import 'archivo.dart';
-
-//String votoPersonero = "", votoContralor = "", votoCabildante = "", votoRepresentante = "";
+import 'personerito.dart';
 
 class iniciarvotaciones extends StatelessWidget {
   const iniciarvotaciones({Key? key, required this.archivo});
@@ -33,32 +32,36 @@ class iniciarvotaciones extends StatelessWidget {
                     onPressed: () async {
                       voto = "";
 
-                      if (votaPersonero) {
-                        await Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => personero(archivo: archivo)));
+                      if (votaPersoneritos && ((nivel == 'Primero') || (nivel == 'Segundo'))) {
+                          await Navigator.push(context, MaterialPageRoute(
+                              builder: (context) =>
+                                  personerito()));
                       }
-                      print("voto en prersonero -> $voto");
+                      else {
+                        if (votaPersonero) {
+                          await Navigator.push(context, MaterialPageRoute(
+                              builder: (context) =>
+                                  personero()));
+                        }
 
-                      if (votaContralor) {
-                        await Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => contralor(archivo: archivo)));
+                        if (votaContralor) {
+                          await Navigator.push(context, MaterialPageRoute(
+                              builder: (context) =>
+                                  contralor()));
+                        }
+
+                        if (votaCabildante) {
+                          await Navigator.push(context, MaterialPageRoute(
+                              builder: (context) =>
+                                  cabildante()));
+                        }
+
+                        if (votaRepresentante) {
+                          await Navigator.push(context, MaterialPageRoute(
+                              builder: (context) =>
+                                  representante()));
+                        }
                       }
-                      print("voto en contralor -> $voto");
-
-                      if (votaCabildante) {
-                        await Navigator.push(context, MaterialPageRoute(
-                            builder: (context) =>
-                                cabildante(archivo: archivo)));
-                      }
-
-                      print("voto en contralor -> $voto");
-
-                      if (votaRepresentante) {
-                        await Navigator.push(context, MaterialPageRoute(
-                            builder: (context) =>
-                                representante(archivo: archivo)));
-                      }
-
                       // guardar el voto
 
                       String resultado = guardarvoto(archivo, voto);
@@ -87,14 +90,7 @@ class iniciarvotaciones extends StatelessWidget {
                           context: context,
                         );
                       }
-
-                      /*                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => personero(archivo: archivo)),
-                        (Route<dynamic> route) => false,)
-                      ;
-*/                    }
+                    }
                 ),
               ])),
           floatingActionButton: FloatingActionButton(

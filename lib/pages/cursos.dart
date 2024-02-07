@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'autenticacionjardin.dart';
+import 'globales.dart';
 
 // Clase para almacenar el nombre del curso
 
@@ -17,7 +18,7 @@ class cursosGrado {
 }
 
 class cursos extends StatelessWidget {
-  const cursos({Key? key, required this.texto}) : super(key: key);
+  const cursos({super.key, required this.texto});
   final String texto;
 
   @override
@@ -86,8 +87,9 @@ funciongrado(texto) {
   // Dependiendo del grado que se va a seleccionar, manda a crear la lista de ese grado solamente
   // y asigna las variables para el usuario y la contraseña correspondientes al grado
 
+  nivel = texto;
   switch (texto) {
-    case "PreJardin":
+/*    case "PreJardin":
       _curso = crearCursos("PreJardin", 3);
       usuario = "Preescolar";
       password = "prejartrans";
@@ -99,7 +101,7 @@ funciongrado(texto) {
       _curso = crearCursos("Transicion", 9);
       usuario = "Preescolar";
       password = "prejartrans";
-    case "Primero":
+*/    case "Primero":
       _curso = crearCursos("1", 10);
       usuario = "Primaria1";
       password = "primerosegundo";
@@ -157,13 +159,13 @@ funciongrado(texto) {
         return ListTile(
           onTap: () {
             print(_curso[index].curso);
+            curso = _curso[index].curso;
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) =>
                   ingresar(usu: usuario,
-                      pass: password,
-                      curso: _curso[index].curso)), //Llama la pagina Sede
-            );
+                      pass: password), //Llama la pagina Sede
+            ));
           },
           title: Text(_curso[index].curso),
           leading: CircleAvatar(
