@@ -9,3 +9,6 @@ bool votaPersonero=true;
 bool votaContralor=true;
 bool votaCabildante=true;
 bool votaRepresentante=true;
+String curso="";
+String nivel="";
+bool votaPersoneritos=true;

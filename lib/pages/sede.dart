@@ -44,7 +44,7 @@ class escogergradosState extends State<escogergrados> {
           children: <Widget>[
 
             //Card para GRADO PREJARDIN
-            Flexible(child: Card(
+/*            Flexible(child: Card(
 
               // Con esta propiedad modificamos la forma de nuestro card
               // Aqui utilizo RoundedRectangleBorder para proporcionarle esquinas circulares al Card
@@ -61,6 +61,7 @@ class escogergradosState extends State<escogergrados> {
                 child: Column(
                   children: <Widget>[
                     Container(
+                      margin: EdgeInsets.only(top: 20),
                       height: 200,
                       width: 200,
                       color: Colors.white,
@@ -92,11 +93,11 @@ class escogergradosState extends State<escogergrados> {
                       },
                       itemBuilder: (context) =>
                       [
-/*                        const PopupMenuItem(
+                        const PopupMenuItem(
                           child: Text("Pre-Jardín"),
                           value: "PreJardin",
                         ),
-*/                       const PopupMenuItem(
+                       const PopupMenuItem(
                           value: "Jardin",
                           child: Text("Jardín"),
                         ),
@@ -121,7 +122,7 @@ class escogergradosState extends State<escogergrados> {
                 )
             ),
             ),
-
+*/
             //Card para GRADO PRIMERO Y SEGUNDO
             Flexible(child: Card(
                 shape: RoundedRectangleBorder(
@@ -131,6 +132,7 @@ class escogergradosState extends State<escogergrados> {
                 child: Column(
                   children: <Widget>[
                     Container(
+                      margin: EdgeInsets.only(top: 20),
                       height: 200,
                       width: 200,
                       color: Colors.white,
@@ -194,6 +196,7 @@ class escogergradosState extends State<escogergrados> {
                 child: Column(
                   children: <Widget>[
                     Container(
+                      margin: EdgeInsets.only(top: 20),
                       height: 200,
                       width: 200,
                       color: Colors.white,
@@ -261,6 +264,7 @@ class escogergradosState extends State<escogergrados> {
                 child: Column(
                   children: <Widget>[
                     Container(
+                      margin: EdgeInsets.only(top: 20),
                       height: 200,
                       width: 200,
                       color: Colors.white,

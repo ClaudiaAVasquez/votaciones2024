@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:votaciones2024/pages/globales.dart';
 
 //Variable de la ubicación
 
@@ -14,7 +15,7 @@ Future<String> get _localPath async {
 
 //Referencia a la ubicación completa del archivo
 //Variable del archivo
-Future<File> nombreArchivo(String curso, String numTablet) async {
+Future<File> nombreArchivo(String numTablet) async {
 
   String prefijo="";
 
@@ -64,7 +65,7 @@ String guardarvoto(File archivo, String voto) {
   if (existe(archivo) == 1) {
     // Generar el codigo del voto y mostrarlo en pantalla y agregarlo al registro
 
-    var registro = "${obtenerCurso(archivo)},${fecha.year.toString()}-${fecha.month.toString()}-${fecha.day.toString()},${fecha.hour.toString()}:${fecha.minute.toString()}:${fecha.second.toString()},$voto,$codigo\n";
+    var registro = "$curso,${fecha.year.toString()}-${fecha.month.toString()}-${fecha.day.toString()},${fecha.hour.toString()}:${fecha.minute.toString()}:${fecha.second.toString()},$voto,$codigo\n";
     print(registro);
     archivo.writeAsString(registro, mode: FileMode.append);
 
@@ -75,7 +76,7 @@ String guardarvoto(File archivo, String voto) {
   return "";
 }
 
-String obtenerCurso(File archivo) {
+/*String obtenerCurso(File archivo) {
   String archivoInv = "";
   String curso = "";
 
@@ -92,3 +93,4 @@ String obtenerCurso(File archivo) {
 
   return curso;
 }
+*/

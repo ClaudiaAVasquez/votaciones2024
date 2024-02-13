@@ -14,8 +14,8 @@ var numtablet = "";
 
 class ingresar extends StatelessWidget {
   const ingresar(
-      {super.key, required this.usu, required this.pass, required this.curso});
-  final String usu, pass, curso;
+      {super.key, required this.usu, required this.pass});
+  final String usu, pass;
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +23,26 @@ class ingresar extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Autenticación"),
       ),
-      body: cuerpo(usu: usu, pass: pass, curso: curso),
+      body: cuerpo(usu: usu, pass: pass),
     );
   }
 }
 
 class cuerpo extends StatefulWidget {
   const cuerpo(
-      {super.key, required this.usu, required this.pass, required this.curso});
-  final String usu, pass, curso;
+      {super.key, required this.usu, required this.pass});
+  final String usu, pass;
 
   @override
   State<StatefulWidget> createState() {
-    return cuerpoState(usu: usu, pass: pass, curso: curso);
+    return cuerpoState(usu: usu, pass: pass);
   }
 }
 
 class cuerpoState extends State<cuerpo> {
   cuerpoState(
-      {Key? key, required this.usu, required this.pass, required this.curso});
-  final String usu, pass, curso;
+      {Key? key, required this.usu, required this.pass});
+  final String usu, pass;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class cuerpoState extends State<cuerpo> {
             const SizedBox(
               height: 10,
             ),
-            botonentrar(context, usu, pass, curso)
+            botonentrar(context, usu, pass)
           ],
         ),
       ),
@@ -132,7 +132,7 @@ Widget campotablet(BuildContext context) {
       ));
 }
 
-Widget botonentrar(BuildContext context, String usu, String pass, String curso) {
+Widget botonentrar(BuildContext context, String usu, String pass) {
   return TextButton(
       style: TextButton.styleFrom(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
@@ -143,7 +143,7 @@ Widget botonentrar(BuildContext context, String usu, String pass, String curso) 
         password = leePassword.text;
         numtablet = leenumtablet.text;
         if ((usuario == usu) && (password == pass)) {
-          File archivo = await nombreArchivo(curso, numtablet);
+          File archivo = await nombreArchivo(numtablet);
           leeUsuario.text = '';
           leePassword.text = '';
           leenumtablet.text = '';
