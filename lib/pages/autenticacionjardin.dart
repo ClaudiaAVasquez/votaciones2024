@@ -48,24 +48,29 @@ class cuerpoState extends State<cuerpo> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      padding: EdgeInsets.all(10),
       decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/escudoNC.jpg'),
             fit: BoxFit.contain,
           )),
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Sign_in(context),
-            campousuario(context),
-            campocontrasena(context),
-            campotablet(context),
-            const SizedBox(
-              height: 10,
-            ),
-            botonentrar(context, usu, pass)
-          ],
+        child:
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Sign_in(context),
+              campousuario(context),
+              campocontrasena(context),
+              campotablet(context),
+              const SizedBox(
+                height: 50,
+              ),
+              botonentrar(context, usu, pass)
+            ],
+          ),
         ),
       ),
     );

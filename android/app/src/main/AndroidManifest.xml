@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="votaciones2024"
+        android:label="Votaciones2025"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/votar">
         <activity
             android:name=".MainActivity"
             android:exported="true"

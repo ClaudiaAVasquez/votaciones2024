@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'botonCandidato.dart';
+import 'globales.dart';
 
 class personerito extends StatelessWidget {
   personerito({super.key });
@@ -44,18 +45,47 @@ class votarpersoneritosState extends State<votarpersoneritos> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(10),
-      child: GridView.count(
-          crossAxisCount: 3, //Cuántos elementos tendra de forma horizontal máximo acomada 3 por fila
-          crossAxisSpacing: 3,
-          mainAxisSpacing: 3,
-          children: <Widget>[
-            BotonCandidato(context, "Personerito", Colors.blue[300], 'assets/images/MatiasSabogalRodriguez.jpg', "Matías Sabogal Rodríguez", "1"),
-            BotonCandidato(context, "Personerito", Colors.green[300], 'assets/images/LorenSofiaAvilaMarroquin.jpg', "Loren Sofía Avila Marroquín", "2"),
-            BotonCandidato(context, "Personerito", Colors.red[300], 'assets/images/EstebandeJesusMorenoMoreno.jpg', "Esteban de Jesús Moreno Moreno", "3"),
-            BotonCandidato(context, "Personerito", Colors.white70, 'assets/images/PersoneritoBlanco.jpg', "Voto en Blanco", "B"),
-          ]),
-    );
+
+    if (jornada == "M") {
+      return Padding(
+        padding: EdgeInsets.all(10),
+        child: GridView.count(
+            crossAxisCount: 3,
+            //Cuántos elementos tendra de forma horizontal máximo acomoda 3 por fila
+            crossAxisSpacing: 3,
+            mainAxisSpacing: 3,
+            children: <Widget>[
+              BotonCandidato(context, "Personerito", Colors.blue[300],
+                  'assets/images/IanSamuelGomezCruz.jpeg',
+                  "Ian Samuel Gómez Cruz", "1"),
+              BotonCandidato(context, "Personerito", Colors.green[300],
+                  'assets/images/TaniaMichelleGutierrezDaza.jpeg',
+                  "Tania Michelle Gutierrez Daza", "2"),
+              BotonCandidato(context, "Personerito", Colors.white70,
+                  'assets/images/PersoneritoBlanco.jpg', "Voto en Blanco",
+                  "B"),
+            ]),
+      );
+    } else {
+      return Padding(
+        padding: EdgeInsets.all(10),
+        child: GridView.count(
+            crossAxisCount: 3,
+            //Cuántos elementos tendra de forma horizontal máximo acomoda 3 por fila
+            crossAxisSpacing: 3,
+            mainAxisSpacing: 3,
+            children: <Widget>[
+              BotonCandidato(context, "Personerito", Colors.red,
+                  'assets/images/ArantzaCrisbelNacurenaTamayo.jpeg',
+                  "Arantza Crisbel Nacureña Tamayo", "1"),
+              BotonCandidato(context, "Personerito", Colors.green,
+                  'assets/images/SaraValentinaBeltranAmaya.jpeg',
+                  "Sara Valentina Beltrán Amaya", "2"),
+              BotonCandidato(context, "Personerito", Colors.white70,
+                  'assets/images/PersoneritoBlanco.jpg', "Voto en Blanco",
+                  "B"),
+            ]),
+      );
+    }
   }
 }

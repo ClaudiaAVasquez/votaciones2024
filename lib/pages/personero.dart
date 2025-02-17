@@ -51,9 +51,10 @@ class votarpersonerosState extends State<votarpersoneros> {
           crossAxisSpacing: 3,
           mainAxisSpacing: 3,
           children: <Widget>[
-            BotonCandidato(context, "Personero", Colors.deepPurpleAccent, 'assets/images/MychellAlvear.jpg', "Mychell Sofía Alvear Salas", "2"),
-            BotonCandidato(context, "Personero", Colors.green, 'assets/images/JeroenAndresTenza.jpg', "Jeroen Andrés Tenza", "4"),
-            BotonCandidato(context, "Personero", Colors.red, 'assets/images/SantiagoBernal.jpg', "Jair Santiago Bernal", "7"),
+            BotonCandidato(context, "Personero", Colors.green[800], 'assets/images/MichaelSantiagoLaguilaoPersonero1101.jpg', "Michael Santiago Laguilao", "1"),
+            BotonCandidato(context, "Personero", Colors.blue[800], 'assets/images/OscarEstebanMoraPerez1104Personero.jpeg', "Oscar Esteban Mora Pérez", "2"),
+            BotonCandidato(context, "Personero", Colors.lightBlue[300], 'assets/images/JonathanJimenez1102Personero.jpeg', "Jonathan Jimémez Casallas", "4"),
+            BotonCandidato(context, "Personero", Colors.purple, 'assets/images/MariaFernandaFandinoFranco1103Personero.jpeg', "María Fernanda Fandiño Franco", "3"),
             BotonCandidato(context, "Personero", Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B"),
           ]),
     );

@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Votaciones Gobierno Escolar IED Nueva Colombia"),
+          centerTitle: true,
         ),
         body: Center(
             child: Column(
@@ -43,22 +44,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   Align(
                     alignment: Alignment.topCenter,
                     child: Container(
-                      width: 300,
-                      height: 300,
+                      width: 350,
+                      height: 350,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                             image:
-                            AssetImage('assets/images/primariavotaciones.jpeg'),
-                            fit: BoxFit.cover),
+                            AssetImage('assets/images/escudoNC.jpg'),
+                            fit: BoxFit.scaleDown),
                       ),
                     ),
                   ),
-                  const Text('GOBIERNO ESCOLAR 2024',
+                  const SizedBox(height: 20,),
+                  const Text('GOBIERNO ESCOLAR 2025',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                   ),
                   const Text('COLEGIO NUEVA COLOMBIA IED',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+                  const SizedBox(height: 40,),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red, // background
+                      foregroundColor: Colors.white, // foreground
+                    ),
                       child: const Text(
                         "Comenzar",
                         style: TextStyle(fontSize: 30),

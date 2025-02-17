@@ -10,10 +10,10 @@ import 'globales.dart';
 // Clase para almacenar el nombre del curso
 
 class cursosGrado {
-  String curso="";
+  String cursoSel="";
 
   cursosGrado(String nombreCurso){
-    this.curso = nombreCurso;
+    this.cursoSel = nombreCurso;
   }
 }
 
@@ -89,66 +89,81 @@ funciongrado(texto) {
 
   nivel = texto;
   switch (texto) {
-/*    case "PreJardin":
-      _curso = crearCursos("PreJardin", 3);
+    case "PreJardin":
+      _curso = crearCursos("PreJardin", (jornada == "M" ? 1 : 0));
       usuario = "Preescolar";
       password = "prejartrans";
+      break;
     case "Jardin":
-      _curso = crearCursos("Jardin", 8);
+      _curso = crearCursos("Jardin", (jornada == "M" ? 1 : 0));
       usuario = "Preescolar";
       password = "prejartrans";
+      break;
     case "Transicion":
-      _curso = crearCursos("Transicion", 9);
+      _curso = crearCursos("Transicion", (jornada == "M" ? 1 : 0));
       usuario = "Preescolar";
       password = "prejartrans";
-*/    case "Primero":
-      _curso = crearCursos("1", 10);
+      break;
+    case "Primero":
+      _curso = crearCursos("1", (jornada == "M" ? 1 : 9));
       usuario = "Primaria1";
       password = "primerosegundo";
+      break;
     case "Segundo":
-      _curso = crearCursos("2", 9);
+      _curso = crearCursos("2", (jornada == "M" ? 1 : 9));
       usuario = "Primaria1";
       password = "primerosegundo";
+      break;
     case "Tercero":
       _curso = crearCursos("3", 6);
       usuario = "Primaria2";
       password = "tercuarquin";
+      break;
     case "Cuarto":
       _curso = crearCursos("4", 6);
       usuario = "Primaria2";
       password = "tercuarquin";
+      break;
     case "Quinto":
       _curso = crearCursos("5", 6);
       usuario = "Primaria2";
       password = "tercuarquin";
+      break;
     case "Sexto":
       _curso = crearCursos("6", 8);
       usuario = "Secundaria";
       password = "secundaria6a11";
+      break;
     case "Septimo":
-      _curso = crearCursos("7", 8);
+      _curso = crearCursos("7", (jornada == "M" ? 5 : 3));
       usuario = "Secundaria";
       password = "secundaria6a11";
+      break;
     case "Octavo":
       _curso = crearCursos("8", 8);
       usuario = "Secundaria";
       password = "secundaria6a11";
+      break;
     case "Noveno":
-      _curso = crearCursos("9", 7);
+      _curso = crearCursos("9", 6);
       usuario = "Secundaria";
       password = "secundaria6a11";
+      break;
     case "Decimo":
       _curso = crearCursos("10", 5);
       usuario = "Secundaria";
       password = "secundaria6a11";
+      break;
     case "Once":
       _curso = crearCursos("11", 5);
       usuario = "Secundaria";
       password = "secundaria6a11";
+      break;
     default:
       _curso = [];
       usuario = "";
       password = "";
+      break;
   }
 
   // Muestra la ventana con la lista de cursos creados para el grado seleccionado
@@ -158,8 +173,9 @@ funciongrado(texto) {
       itemBuilder: (context, index) {
         return ListTile(
           onTap: () {
-            print(_curso[index].curso);
-            curso = _curso[index].curso;
+            print(_curso[index].cursoSel);
+            curso = "${_curso[index].cursoSel}";
+            print(curso);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) =>
@@ -167,10 +183,10 @@ funciongrado(texto) {
                       pass: password), //Llama la pagina Sede
             ));
           },
-          title: Text(_curso[index].curso),
+          title: Text(_curso[index].cursoSel),
           leading: CircleAvatar(
             child: Text(
-                _curso[index].curso.substring(_curso[index].curso.length - 2)),
+                _curso[index].cursoSel.substring(_curso[index].cursoSel.length - 2)),
           ),
           trailing: Icon(Icons.arrow_forward_ios),
         );

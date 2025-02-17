@@ -16,6 +16,9 @@ class iniciarvotaciones extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    String votoant = "";
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("INICAR VOTACIONES"),
@@ -32,34 +35,49 @@ class iniciarvotaciones extends StatelessWidget {
                     onPressed: () async {
                       voto = "";
 
-                      if (votaPersoneritos && ((nivel == 'Primero') || (nivel == 'Segundo'))) {
+                      if (votaPersoneritos && (buscarCursoPersonerito(nivel))) {
+                        votoant = voto;
+                        do {
                           await Navigator.push(context, MaterialPageRoute(
                               builder: (context) =>
                                   personerito()));
+                        } while (voto == votoant);
                       }
                       else {
+                        votoant = voto;
                         if (votaPersonero) {
-                          await Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>
-                                  personero()));
+                          do {
+                            await Navigator.push(context, MaterialPageRoute(
+                                builder: (context) =>
+                                    personero()));
+                          } while (voto == votoant);
                         }
 
+                        votoant = voto;
                         if (votaContralor) {
-                          await Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>
-                                  contralor()));
+                          do {
+                            await Navigator.push(context, MaterialPageRoute(
+                                builder: (context) =>
+                                    contralor()));
+                          } while (voto == votoant);
                         }
 
+                        votoant = voto;
                         if (votaCabildante) {
-                          await Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>
-                                  cabildante()));
+                          do {
+                            await Navigator.push(context, MaterialPageRoute(
+                                builder: (context) =>
+                                    cabildante()));
+                          } while (voto == votoant);
                         }
 
+                        votoant = voto;
                         if (votaRepresentante) {
-                          await Navigator.push(context, MaterialPageRoute(
-                              builder: (context) =>
-                                  representante()));
+                          do {
+                            await Navigator.push(context, MaterialPageRoute(
+                                builder: (context) =>
+                                    representante()));
+                          } while (voto == votoant);
                         }
                       }
                       // guardar el voto
@@ -88,6 +106,29 @@ class iniciarvotaciones extends StatelessWidget {
                                   ]);
                           },
                           context: context,
+                        );
+                      }
+                      else {
+                        // Muestra un mensaje de error si no se puede almacenar el voto.....
+                        showDialog(
+                            barrierDismissible:
+                            false,
+                            //No quita el cuadro de Dialogo al darle clic por fuera de este
+                            builder: (contexto) {
+                          return
+                            AlertDialog(
+                                title: const Text("Error al registrar el voto"),
+                                content: const Text(
+                                    "No pudo guardarse el registro ni generarse codigo de vitación"),
+                                actions: <Widget>[
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(contexto);
+                                      },
+                                      child: Text("Ok")),
+                                ]);
+                        },
+                        context: context,
                         );
                       }
                     }
@@ -122,5 +163,15 @@ class iniciarvotaciones extends StatelessWidget {
             child: const Icon(Icons.exit_to_app_rounded),
           ),
     );
+  }
+
+  bool buscarCursoPersonerito(String nivel) {
+    for (curso in CursosPersonerito) {
+      if (curso == nivel) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }

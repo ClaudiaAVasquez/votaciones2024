@@ -11,4 +11,16 @@ bool votaCabildante=true;
 bool votaRepresentante=true;
 String curso="";
 String nivel="";
+String jornada="M";
 bool votaPersoneritos=true;
+
+const List<String> CursosPersonerito = [
+  "PreJardin",
+  "Jardin",
+  "Transicion",
+  "Primero",
+  "Segundo"
+/*  "Tercero",
+  "Cuarto",
+  "Quinto"*/
+];

@@ -65,10 +65,9 @@ String guardarvoto(File archivo, String voto) {
   if (existe(archivo) == 1) {
     // Generar el codigo del voto y mostrarlo en pantalla y agregarlo al registro
 
-    var registro = "$curso,${fecha.year.toString()}-${fecha.month.toString()}-${fecha.day.toString()},${fecha.hour.toString()}:${fecha.minute.toString()}:${fecha.second.toString()},$voto,$codigo\n";
+    var registro = "$curso,$jornada,${fecha.year.toString()}-${fecha.month.toString()}-${fecha.day.toString()},${fecha.hour.toString()}:${fecha.minute.toString()}:${fecha.second.toString()},$voto,$codigo\n";
     print(registro);
     archivo.writeAsString(registro, mode: FileMode.append);
-
 
     return codigo;
   }

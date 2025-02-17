@@ -20,9 +20,9 @@ class cabildante extends StatelessWidget{
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: <Widget> [
-              BotonCandidato(context, "Cabildante", Colors.black, 'assets/images/IsaacManuelLuna.jpg', "Isaac Manuel Luna", "1"),
-              BotonCandidato(context, "Cabildante", Colors.purple, 'assets/images/SantiagoMonroyPita.jpg', "David Santiago Monroy Pita", "3"),
-              BotonCandidato(context, "Cabildante", Colors.blue, 'assets/images/DiegoFernandoCorreaJaime.jpg', "Diego Fernando Correa Jaime", "6"),
+              BotonCandidato(context, "Cabildante", Colors.red, 'assets/images/AngelicaRaquelAndradeLuna1004Cabildante.jpeg', "Angélica Raquel Andrade Luna", "1"),
+              BotonCandidato(context, "Cabildante", Colors.white, 'assets/images/JeremyRodriguez1101Cabildante.jpeg', "Jeremy Rodríguez Quiroz", "2"),
+              BotonCandidato(context, "Cabildante", Colors.purple, 'assets/images/noDisponible.jpeg', "Isabela de Jesús Meza Castro", "3"),
               BotonCandidato(context, "Cabildante", Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B"),
             ]
         ),

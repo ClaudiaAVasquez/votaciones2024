@@ -17,11 +17,13 @@ class contralor extends StatelessWidget{
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: <Widget>[
-
-              BotonCandidato(context, "Contralor", Colors.green, 'assets/images/JoelValenzuela.jpg', "Joel Valenzuela", "5"),
-              BotonCandidato(context, "Contralor", Colors.orange, 'assets/images/YeibersonFranco.jpg', "José Yeiberson Franco", "8"),
+              BotonCandidato(context, "Contralor", Colors.lightBlue[300], 'assets/images/JuanPabloHernandezBustos1102Contralor.jpeg', "Juan Pablo Hernández Bustos", "5"),
+              BotonCandidato(context, "Contralor", Colors.grey[600], 'assets/images/MiguelAngelDiazHernandez1004Contralor.jpeg', "Miguel Angel Díaz Hernández", "6"),
+              BotonCandidato(context, "Contralor", Colors.red, 'assets/images/noDisponible.jpeg', "Shiara Arévalo Pariño", "1"),
+              BotonCandidato(context, "Contralor", Colors.black, 'assets/images/AndresFelipePayaresAvilez1103Contralor.jpeg', "Andrés Felipe Payares Avilez", "3"),
+              BotonCandidato(context, "Contralor", Colors.blue[800], 'assets/images/noDisponible.jpeg', "Zahara Nikolle Rodríguez V.", "2"),
+              BotonCandidato(context, "Contralor", Colors.green[800], 'assets/images/noDisponible.jpeg', "Stiven Otero", "4"),
               BotonCandidato(context, "Contralor", Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en BLANCO", "B"),
-
             ]
         ),
       ),
