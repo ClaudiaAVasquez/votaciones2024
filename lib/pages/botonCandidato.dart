@@ -21,8 +21,7 @@ Widget BotonCandidato(BuildContext contexto, String cargo, var color, String ima
       ),
       onPressed: () {
         showDialog(
-            barrierDismissible:
-            false,
+            barrierDismissible: false,
             //No quita el cuadro de Dialogo al darle clic por fuera de este
             builder: (context) {
               return AlertDialog(
