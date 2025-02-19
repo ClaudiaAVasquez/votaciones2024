@@ -22,7 +22,7 @@ class cabildante extends StatelessWidget{
             children: <Widget> [
               BotonCandidato(context, "Cabildante", Colors.red, 'assets/images/AngelicaRaquelAndradeLuna1004Cabildante.jpeg', "Angélica Raquel Andrade Luna", "1"),
               BotonCandidato(context, "Cabildante", Colors.white, 'assets/images/JeremyRodriguez1101Cabildante.jpeg', "Jeremy Rodríguez Quiroz", "2"),
-              BotonCandidato(context, "Cabildante", Colors.purple, 'assets/images/noDisponible.jpeg', "Isabela de Jesús Meza Castro", "3"),
+              BotonCandidato(context, "Cabildante", Colors.purple, 'assets/images/IsabelladeJesusMezaCastro1103Cabildante.jpeg', "Isabela de Jesús Meza Castro", "3"),
               BotonCandidato(context, "Cabildante", Colors.white, 'assets/images/Votoenblanco.jpg', "Voto en Blanco", "B"),
             ]
         ),

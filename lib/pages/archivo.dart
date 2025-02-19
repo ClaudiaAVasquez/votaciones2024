@@ -39,9 +39,8 @@ Future<File> nombreArchivo(String numTablet) async {
 int existe(File nombre) {
   print("verificar si existe el archivo ${nombre.path}");
   if (nombre.exists() == true) {
-    print("Leyendo el archivo $nombre");
     nombre.readAsString().then((String contents) {
-      print(contents);
+      print("contents -> $contents");
     });
   } else {
     try {
@@ -61,18 +60,16 @@ String guardarvoto(File archivo, String voto) {
 
   String codigo = "${voto.replaceAll(",", "")}${fecha.millisecond.toString()}${fecha.microsecond.toString()}";
 
-  print("Guardarvoto");
   if (existe(archivo) == 1) {
     // Generar el codigo del voto y mostrarlo en pantalla y agregarlo al registro
 
     var registro = "$curso,$jornada,${fecha.year.toString()}-${fecha.month.toString()}-${fecha.day.toString()},${fecha.hour.toString()}:${fecha.minute.toString()}:${fecha.second.toString()},$voto,$codigo\n";
-    print(registro);
     archivo.writeAsString(registro, mode: FileMode.append);
 
     return codigo;
   }
 
-  return "";
+  return "" ;
 }
 
 /*String obtenerCurso(File archivo) {

@@ -22,6 +22,7 @@ class iniciarvotaciones extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("INICAR VOTACIONES"),
+        centerTitle: true,
       ),
       body: Center(
           child: Column(
