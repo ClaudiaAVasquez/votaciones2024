@@ -93,77 +93,62 @@ funciongrado(texto) {
       _curso = crearCursos("PreJardin", (jornada == "M" ? 1 : 0));
       usuario = "Preescolar";
       password = "prejartrans";
-      break;
     case "Jardin":
       _curso = crearCursos("Jardin", (jornada == "M" ? 1 : 0));
       usuario = "Preescolar";
       password = "prejartrans";
-      break;
     case "Transicion":
       _curso = crearCursos("Transicion", (jornada == "M" ? 1 : 0));
       usuario = "Preescolar";
       password = "prejartrans";
-      break;
     case "Primero":
       _curso = crearCursos("1", (jornada == "M" ? 1 : 9));
       usuario = "Primaria1";
       password = "primerosegundo";
-      break;
     case "Segundo":
       _curso = crearCursos("2", (jornada == "M" ? 1 : 9));
       usuario = "Primaria1";
       password = "primerosegundo";
-      break;
     case "Tercero":
       _curso = crearCursos("3", 6);
       usuario = "Primaria2";
       password = "tercuarquin";
-      break;
     case "Cuarto":
       _curso = crearCursos("4", 6);
       usuario = "Primaria2";
       password = "tercuarquin";
-      break;
     case "Quinto":
       _curso = crearCursos("5", 6);
       usuario = "Primaria2";
       password = "tercuarquin";
-      break;
     case "Sexto":
       _curso = crearCursos("6", 8);
       usuario = "Secundaria";
       password = "secundaria6a11";
-      break;
     case "Septimo":
       _curso = crearCursos("7", (jornada == "M" ? 5 : 3));
       usuario = "Secundaria";
       password = "secundaria6a11";
-      break;
     case "Octavo":
       _curso = crearCursos("8", 8);
       usuario = "Secundaria";
       password = "secundaria6a11";
-      break;
     case "Noveno":
       _curso = crearCursos("9", 6);
       usuario = "Secundaria";
       password = "secundaria6a11";
-      break;
     case "Decimo":
       _curso = crearCursos("10", 5);
       usuario = "Secundaria";
       password = "secundaria6a11";
-      break;
     case "Once":
       _curso = crearCursos("11", 5);
       usuario = "Secundaria";
       password = "secundaria6a11";
-      break;
     default:
       _curso = [];
       usuario = "";
       password = "";
-      break;
   }
 
   // Muestra la ventana con la lista de cursos creados para el grado seleccionado
