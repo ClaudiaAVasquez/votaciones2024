@@ -44,6 +44,7 @@ class votarpersonerosState extends State<votarpersoneros> {
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: EdgeInsets.all(10),
       child: GridView.count(

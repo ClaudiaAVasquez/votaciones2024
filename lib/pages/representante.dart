@@ -32,6 +32,7 @@ class representante extends StatelessWidget{
   List<Widget> crearLista(BuildContext context) {
     List<Widget> listaRepresentantes = [];
 
+    print("Lista curso -> $curso");
     switch (curso) {
       case "301":
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/LorenSofiaAvilaMarroquin301.jpeg', "Loren Sofía Avila Marroquín", "3011"));

@@ -158,9 +158,8 @@ funciongrado(texto) {
       itemBuilder: (context, index) {
         return ListTile(
           onTap: () {
-            print(_curso[index].cursoSel);
             curso = "${_curso[index].cursoSel}";
-            print(curso);
+            print("curso seleccionado $curso");
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) =>

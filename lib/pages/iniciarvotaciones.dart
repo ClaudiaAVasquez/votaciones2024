@@ -34,7 +34,6 @@ class iniciarvotaciones extends StatelessWidget {
                         )),
                     onPressed: () async {
                       voto = "";
-
                       if (votaPersoneritos && (buscarCursoPersonerito(nivel))) {
                         votoant = voto;
                         do {
@@ -166,8 +165,8 @@ class iniciarvotaciones extends StatelessWidget {
   }
 
   bool buscarCursoPersonerito(String nivel) {
-    for (curso in CursosPersonerito) {
-      if (curso == nivel) {
+    for (String ncurso in CursosPersonerito) {
+      if (ncurso == nivel) {
         return true;
       }
     }
