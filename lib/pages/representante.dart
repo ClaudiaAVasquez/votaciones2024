@@ -152,9 +152,9 @@ class representante extends StatelessWidget{
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/708_Faviora_Stenstrom_3917.jpg', "Faviora Stenstrom", "7081"));
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/708_Valerie_Gonzales_3915.jpg', "Valerie Gonzáles", "7082"));
 */
-//      case "801":
-//        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/801_Elizabeth_Pedroza_3959.jpg', "María Valentina Villamil", "8011"));
-//        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/801_Maria_Paula_Palacios_3958.jpg', "Gabriela Castillo Páez ", "8022"));
+      case "801":
+        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/SergioAndresManjarresGutierrez801.jpeg', "Sergio Andrés Manjarrés Gutiérrez", "8011"));
+        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/AndresFelipeOlivaresGulfo801.jpeg', "Andrés Felipe Olivares Gulfo ", "8022"));
       case "802":
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/GabrielaCastilloPaez802.jpeg', "Gabriela Castillo Paez", "8021"));
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/MariaValentinaVillamilForero802.jpeg', "María Valentina Villamil Forero", "8022"));
@@ -168,13 +168,13 @@ class representante extends StatelessWidget{
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/ValerieCamilaBecerraMendez805.jpeg', "Valerie Camila Becerra Méndez", "8051"));
         //listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/805_Scarlette_Meza_3924.jpg', "Scarlette Meza", "8052"));
       case "806":
-        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/EdisonMateoParra806.jpeg.jpg', "Edison Mateo Parra", "8061"));
+        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/EdisonMateoParra806.jpeg', "Edison Mateo Parra", "8061"));
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/JeanCarlosVasquezMolina806.jpeg', "Jean Carlos Vásquez Molina", "8062"));
       case "807":
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/SamuelEstebanMartinezBonilla807.jpeg', "Samuel Esteban Martínez Bonilla", "8071"));
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/BraulioDavidSilva807.jpeg', "Braulio David Silva", "8072"));
       case "808":
-        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/MariaJoseGilPena808.jpeg', "María José Gil Peña", "8081"));
+        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/MariaJoseGilPena808.jpeg', "Mariajosé Gil Peña", "8081"));
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/LauraVictoriaCarvajalAguirre808.jpeg', "Laura Victoria Carvajal Aguirre", "8082"));
       case "901":
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/DayanaMichellJimenezLopez901.png', "Dayana Michell Jiménez López", "9011"));
@@ -187,7 +187,7 @@ class representante extends StatelessWidget{
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/AbrahamAlfonsoChinchillaQuintero903.png', "Abraham Alfonso Chinchilla Quintero", "9032"));
       case "904":
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/ValerieNicollBenitezContreras904.png', "Valerie Nicoll Benítez Contreras", "9041"));
-        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/JulianFelipeSarmientoSerrano904.png', "Julián Felipe Sarmiento Serrano", "9042"));
+//        listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/JulianFelipeSarmientoSerrano904.png', "Julián Felipe Sarmiento Serrano", "9042"));
       case "905":
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.cyan, 'assets/images/StivenClementeMendivilRivera905M.jpg', "Stiven Clemente Mendivil Rivera", "9051"));
         listaRepresentantes.add(BotonCandidato(context, "Representante curso $curso", Colors.deepOrangeAccent, 'assets/images/IsabellaZunigaMendivelso905M.jpg', "Isabella Zuñiga Mendivelso", "9052"));
