@@ -43,48 +43,53 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text("Votaciones Gobierno Escolar IED Nueva Colombia"),
           centerTitle: true,
         ),
-        body: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Container(
-                      width: 350,
-                      height: 350,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image:
-                            AssetImage('assets/images/escudoNC.jpg'),
-                            fit: BoxFit.scaleDown),
+        body:
+            Center(
+              child: FittedBox(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                          width: 350,
+                          height: 350,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image:
+                                AssetImage('assets/images/escudoNC.jpg'),
+                                fit: BoxFit.scaleDown),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 20,),
-                  const Text('GOBIERNO ESCOLAR 2025',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
-                  ),
-                  const Text('COLEGIO NUEVA COLOMBIA IED',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-                  const SizedBox(height: 40,),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red, // background
-                      foregroundColor: Colors.white, // foreground
-                    ),
-                      child: const Text(
-                        "Comenzar",
-                        style: TextStyle(fontSize: 30),
+                      const SizedBox(height: 20,),
+                      const Text('GOBIERNO ESCOLAR 2025',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                const sede()) //Llama la pagina Sede
-                        );
-                      })
-                ])));
+                      const Text('COLEGIO NUEVA COLOMBIA IED',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+                      const SizedBox(height: 40,),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red, // background
+                          foregroundColor: Colors.white, // foreground
+                        ),
+                          child: const Text(
+                            "Comenzar",
+                            style: TextStyle(fontSize: 30),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                    const sede()) //Llama la pagina Sede
+                            );
+                          })
+                    ])
+                ),
+            ),
+        );
   }
 }

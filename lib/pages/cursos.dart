@@ -161,26 +161,29 @@ funciongrado(texto) {
       child: ListView.builder(
           itemCount: _curso.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              onTap: () {
-                curso = "${_curso[index].cursoSel}";
-                print("curso seleccionado $curso");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>
-                      ingresar(usu: usuario,
-                          pass: password), //Llama la pagina Sede
-                ));
-              },
-              
-              title: Text(_curso[index].cursoSel),
-              tileColor: Colors.grey[300],
-              titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-              leading: CircleAvatar(
-                child: Text(
-                    _curso[index].cursoSel.substring(_curso[index].cursoSel.length - 2)),
+            return Padding(
+              padding: EdgeInsets.all(5),
+              child: ListTile(
+                onTap: () {
+                  curso = "${_curso[index].cursoSel}";
+                  print("curso seleccionado $curso");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>
+                        ingresar(usu: usuario,
+                            pass: password), //Llama la pagina Sede
+                  ));
+                },
+                title: Text(_curso[index].cursoSel),
+                tileColor: Colors.grey[300],
+                minTileHeight: 30,
+                titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                leading: CircleAvatar(
+                  child: Text(
+                      _curso[index].cursoSel.substring(_curso[index].cursoSel.length - 2)),
+                ),
+                trailing: Icon(Icons.arrow_forward_ios),
               ),
-              trailing: Icon(Icons.arrow_forward_ios),
             );
           }),
     ),

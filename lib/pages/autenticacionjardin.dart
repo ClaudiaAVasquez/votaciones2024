@@ -22,6 +22,7 @@ class ingresar extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Autenticación"),
+        centerTitle: true,
       ),
       body: cuerpo(usu: usu, pass: pass),
     );

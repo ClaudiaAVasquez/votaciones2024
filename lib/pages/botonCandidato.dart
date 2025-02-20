@@ -8,16 +8,17 @@ Widget BotonCandidato(BuildContext contexto, String cargo, var color, String ima
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0)),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+      child: FittedBox(child: Column(crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(imagen, height: 250, width: 250,),
+            Image.asset(imagen, height: 220),
             const SizedBox(height: 10,),
             Text(" $nombreCandidato ", style: const TextStyle(
                 backgroundColor: Colors.white,
                 color: Colors.black,
                 fontSize: 15),),
           ]
+        ),
       ),
       onPressed: () {
         showDialog(
