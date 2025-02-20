@@ -12,6 +12,7 @@ class cabildante extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text("CABILDANTE"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.all(10),

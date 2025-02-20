@@ -9,6 +9,7 @@ class personero extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("PERSONERO"),
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},

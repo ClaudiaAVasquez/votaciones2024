@@ -23,9 +23,6 @@ Future<File> nombreArchivo(String numTablet) async {
     prefijo = "c:\\archivos\\";
   } else {
     if (Platform.isAndroid) {
-      //final nombre = Directory.systemTemp.path + '/' + curso + numtablet + '.csv';
-      //prefijo = "/storage/emulated/0/Documents/";
-      //final nombre = _localPath + curso + numtablet;
       prefijo = "${await _localPath}/";
     }
   }
@@ -71,22 +68,3 @@ String guardarvoto(File archivo, String voto) {
 
   return "" ;
 }
-
-/*String obtenerCurso(File archivo) {
-  String archivoInv = "";
-  String curso = "";
-
-  for (var i = archivo.path.indexOf('-') - 1; i >= 0; i--) {
-    if (String.fromCharCode(archivo.path.runes.elementAt(i)) == '/' || String.fromCharCode(archivo.path.runes.elementAt(i)) == '\\')
-      break;
-
-    archivoInv += String.fromCharCode(archivo.path.runes.elementAt(i));
-  }
-
-  for (var i = archivoInv.length - 1; i >= 0; i--) {
-    curso += String.fromCharCode(archivoInv.runes.elementAt(i));
-  }
-
-  return curso;
-}
-*/

@@ -26,6 +26,7 @@ class cursos extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("CURSO"),
+        centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {},
@@ -57,6 +58,7 @@ class escogercursoState extends State<escogercurso> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Escoger Curso para votar"),
+        centerTitle: true,
       ),
       body: funciongrado(texto),
     );
@@ -153,26 +155,34 @@ funciongrado(texto) {
 
   // Muestra la ventana con la lista de cursos creados para el grado seleccionado
 
-  return ListView.builder(
-      itemCount: _curso.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          onTap: () {
-            curso = "${_curso[index].cursoSel}";
-            print("curso seleccionado $curso");
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>
-                  ingresar(usu: usuario,
-                      pass: password), //Llama la pagina Sede
-            ));
-          },
-          title: Text(_curso[index].cursoSel),
-          leading: CircleAvatar(
-            child: Text(
-                _curso[index].cursoSel.substring(_curso[index].cursoSel.length - 2)),
-          ),
-          trailing: Icon(Icons.arrow_forward_ios),
-        );
-      });
+  return Center(
+    child: Container(
+      width: 400,
+      child: ListView.builder(
+          itemCount: _curso.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              onTap: () {
+                curso = "${_curso[index].cursoSel}";
+                print("curso seleccionado $curso");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>
+                      ingresar(usu: usuario,
+                          pass: password), //Llama la pagina Sede
+                ));
+              },
+              
+              title: Text(_curso[index].cursoSel),
+              tileColor: Colors.grey[300],
+              titleTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+              leading: CircleAvatar(
+                child: Text(
+                    _curso[index].cursoSel.substring(_curso[index].cursoSel.length - 2)),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios),
+            );
+          }),
+    ),
+  );
 }

@@ -10,6 +10,7 @@ class personerito extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("PERSONERITO"),
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {},
@@ -77,10 +78,10 @@ class votarpersoneritosState extends State<votarpersoneritos> {
             children: <Widget>[
               BotonCandidato(context, "Personerito", Colors.red,
                   'assets/images/ArantzaCrisbelNacurenaTamayo.jpeg',
-                  "Arantza Crisbel Nacureña Tamayo", "1"),
+                  "Arantza Crisbel Nacureña Tamayo", "3"),
               BotonCandidato(context, "Personerito", Colors.green,
                   'assets/images/SaraValentinaBeltranAmaya.jpeg',
-                  "Sara Valentina Beltrán Amaya", "2"),
+                  "Sara Valentina Beltrán Amaya", "4"),
               BotonCandidato(context, "Personerito", Colors.white70,
                   'assets/images/PersoneritoBlanco.jpg', "Voto en Blanco",
                   "B"),

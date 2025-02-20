@@ -124,7 +124,7 @@ class escogergradosState extends State<escogergrados> {
                                   setState(() {
                                     _value = value
                                         .toString(); //Convierte el obj value en String
-                                    print(_value);
+
                                     controlador.text = _value;
                                     Navigator.push(
                                         context,
@@ -189,7 +189,7 @@ class escogergradosState extends State<escogergrados> {
                                 onSelected: (value) {
                                   setState(() {
                                     _value = value.toString(); //Convierte el obj value en String
-                                    print(_value);
+
                                     controlador.text = _value;
                                     Navigator.push(
                                         context,
@@ -251,7 +251,7 @@ class escogergradosState extends State<escogergrados> {
                                   onSelected: (value) {
                                     setState(() {
                                       _value = value.toString(); //Convierte el obj value en String
-                                      print(_value);
+
                                       controlador.text = _value;
                                       Navigator.push(
                                           context,
@@ -316,7 +316,7 @@ class escogergradosState extends State<escogergrados> {
                                 onSelected: (value) {
                                   setState(() {
                                     _value = value.toString(); //Convierte el obj value en String
-                                    print(_value);
+
                                     controlador.text = _value;
                                     Navigator.push(
                                         context,

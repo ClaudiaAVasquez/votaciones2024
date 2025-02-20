@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'pages/sede.dart';
 
 //import 'dart:ffi';
@@ -32,6 +33,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    // Set landscape orientation
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
     return Scaffold(
         appBar: AppBar(
           title: const Text("Votaciones Gobierno Escolar IED Nueva Colombia"),

@@ -9,6 +9,7 @@ class contralor extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text("CONTRALOR"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
